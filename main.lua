@@ -8,5 +8,5 @@ local day2 = require("day2")
 -- day1.part2()
 
 -- SOLVED
-day2.part1()
+-- day2.part1()
 -- day2.part2()

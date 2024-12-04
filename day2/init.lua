@@ -54,6 +54,7 @@ M.part2 = function()
 	for _, report in ipairs(reports) do
 		-- We dont need to calculate the last number in the report
 		-- assume safe till we know its not
+		local damp_problem = true
 		local safe = true
 		local increasing
 		for j = 1, #report - 1 do
@@ -67,9 +68,16 @@ M.part2 = function()
 			if j == 1 then
 				increasing = is_increasing
 			end
-			-- its NOT safe if the difference doesnt fall in line below
-			if (first == second) or (increasing ~= is_increasing) and (diff < 1 or diff > 3) then
-				safe = false
+			if (first == second) or (increasing ~= is_increasing) or (diff < 1 or diff > 3) then
+				if damp_problem then
+					-- we ignore if we still have damp_problem
+					-- update increasing
+					increasing = is_increasing
+					-- dont let damp problem work again
+					damp_problem = false
+				else
+					safe = false
+				end
 			end
 		end
 
