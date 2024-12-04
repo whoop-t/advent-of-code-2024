@@ -18,7 +18,7 @@ M.print_table = function(tbl, indent)
     local prefix = string.rep("  ", indent) -- Indentation for nested levels
     if type(value) == "table" then
       print(prefix .. key .. ":")
-      print_table(value, indent + 1)
+      M.print_table(value, indent + 1)
     else
       print(prefix .. key .. ": " .. tostring(value))
     end
