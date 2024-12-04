@@ -1,4 +1,4 @@
--- main lua to call the day1 challenges
+-- main lua to call the challenges
 
 local day1 = require("day1")
 
