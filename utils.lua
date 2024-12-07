@@ -25,4 +25,28 @@ M.print_table = function(tbl, indent)
   end
 end
 
+M.contains = function(array, value)
+  for _, v in ipairs(array) do
+    if v == value then
+      return true
+    end
+  end
+  return false
+end
+
+M.splitTable = function(tbl, index)
+  local firstPart = {}
+  local secondPart = {}
+
+  for i = 1, index do
+    table.insert(firstPart, tbl[i])
+  end
+
+  for i = index + 1, #tbl do
+    table.insert(secondPart, tbl[i])
+  end
+
+  return firstPart, secondPart
+end
+
 return M
