@@ -162,11 +162,6 @@ M.part2 = function()
     end
   end
 
-  local count = 0
-  for _ in pairs(seen) do
-    count = count + 1
-  end
-
   print(cycle)
 end
 
